@@ -1,0 +1,11 @@
+body{
+	background-image: url("images/background-image.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+    background-attachment: fixed;
+}
+footer{
+	width: 100%;
+	background-color: black;
+	
+}

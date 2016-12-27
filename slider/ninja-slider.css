@@ -1,0 +1,178 @@
+/* Visit http://www.menucool.com/responsive-slider for instructions */
+
+#ninja-slider {
+    width:100%;
+    margin:0 auto;
+    overflow:hidden;
+    box-sizing:border-box;
+}
+
+#ninja-slider.fullscreen {
+    background:black;
+}
+
+#ninja-slider .fs-icon {
+    top:10px;
+    right:6px;
+    width:60px;
+    height:26px;
+    background: rgba(0,0,0,0.3);
+    z-index:2;
+    color:white;
+    text-align:center;
+    font:bold 11px/26px arial;
+    border:1px solid rgba(255,255,255,0.3);
+    border-radius:2px;
+    opacity:0;
+    -webkit-transition:opacity 0.8s;
+    transition:opacity 0.8s;
+}
+
+#ninja-slider .slider-inner:hover .fs-icon,
+#ninja-slider.fullscreen .fs-icon {
+    opacity: 1;
+}
+
+#ninja-slider .fs-icon::before {      
+    content:"EXPAND";
+    display:block;
+}
+
+#ninja-slider.fullscreen .fs-icon::before {
+    content:"CLOSE";
+}
+
+#ninja-slider .slider-inner {
+    max-width:800px;
+    margin:0 auto;/*center-aligned */
+    font-size:0px;
+    position:relative;
+    box-sizing:border-box;
+}
+
+#ninja-slider.fullscreen .slider-inner {
+    width:100%;
+    max-width:950px;
+}
+
+#ninja-slider ul {
+    /*overflow:hidden;*/
+    position:relative;
+    list-style:none;
+    padding:0;
+    box-sizing:border-box;
+}
+
+#ninja-slider li {
+    
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    position: absolute;
+    font-size:12px;
+    list-style:none;
+    margin:0;
+    padding:0;
+    opacity:0;
+    overflow:hidden;
+    box-sizing:border-box;
+}
+
+#ninja-slider li.ns-show {
+    opacity:1;
+}
+
+
+/* --------- slider image ------- */  
+#ninja-slider .ns-img {
+    background-size:cover;/*Note: If transitionType is zoom, it will be overridden to cover.*/
+
+    cursor:default;
+    display:block;
+    position: absolute;
+    width:100%;
+    height:100%;
+    background-repeat:no-repeat;
+    background-position:center center;
+}
+
+/* ---------Arrow buttons ------- */   
+/* The arrow button id should be: slider id + ("-prev", "-next", and "-pause-play") */   
+#ninja-slider-pause-play { display:none;} 
+
+
+/*pagination within the prev/next buttons*/
+#ninja-slider-prev div {opacity:0;margin-left:30px;transition:opacity 0.7s;}
+#ninja-slider-next div {opacity:0;float:right;margin-right:30px;transition:opacity 0.7s;}
+#ninja-slider-prev:hover div, #ninja-slider-next:hover div{opacity:1;}
+
+
+
+
+/*------ pager(nav bullets) ------*/      
+/* The pager id should be: slider id + "-pager" */
+/* #ninja-slider-pager { display:none;}*/
+#ninja-slider-pager
+{
+
+    margin:0 auto; /* center align */
+    text-align:center;
+    
+}
+         
+#ninja-slider-pager a 
+{
+    display:-webkit-box;
+    width: 15px;
+    height: 15px;
+    background-color: #888;
+    font-size:0; /* Non-zero will show the index num */
+    margin:4px;
+    cursor:pointer;
+    border-radius:10px;
+    box-shadow:inset 0 1px 3px #666666;
+    z-index: 1;
+    position: relative;
+    left: 750px;
+    bottom: 250px;
+}
+
+#ninja-slider-pager a:hover 
+{
+    opacity:0.6;
+}
+#ninja-slider-pager a.active 
+{
+    background-color:#ccc;
+    box-shadow:0 1px 1px rgba(0,0,0,.5);
+}
+
+   
+
+#ninja-slider-pager, #ninja-slider-prev, #ninja-slider-next, #ninja-slider-pause-play
+{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+
+/*------ Responsive settings ------*/
+@media only screen and (max-width:950px){
+    
+    #ninja-slider-prev {
+        left: -12px;
+    }
+
+    #ninja-slider-next {
+        right: -12px;
+    }
+}
+
+@media only screen and (max-width:600px){
+      
+    #ninja-slider-prev, #ninja-slider-next, #ninja-slider-pager {
+        display:none;
+    }
+}
